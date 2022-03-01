@@ -207,3 +207,37 @@ type CommandWithSubCommand struct {
 	Type          InteractionType `json:"type"`
 	Version       int             `json:"version"`
 }
+
+type PartialAttachment struct {
+	ID          string `json:"id"`
+	FileName    string `json:"filename"`
+	Description string `json:"description"`
+}
+
+type InteractionResponseMessage struct {
+	TTS             bool                `json:"tts"`
+	Content         string              `json:"content"`
+	Embeds          Embed               `json:"embeds"`
+	AllowedMentions AllowedMentions     `json:"allowed_mentions"`
+	Flags           MessageFlags        `json:"flags"`
+	Components      []Component         `json:"components"`
+	Attachments     []PartialAttachment `json:"attachments"`
+}
+
+type InteractionResponse struct {
+	Type CallbackType               `json:"type"`
+	Data InteractionResponseMessage `json:"data"`
+}
+
+func (r InteractionResponse) Prepare() (b []byte, err error) {
+
+	if len(r.Data.Attachments) == 0 {
+		r.Data.Attachments = nil
+		b, err = json.Marshal(r)
+		return
+	}
+
+	// TODO: make attachments work
+	return
+
+}
