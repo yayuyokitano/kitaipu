@@ -40,6 +40,18 @@ const (
 	InteractionModalSubmit                    InteractionType = 5
 )
 
+type CallbackType int
+
+const (
+	CallbackPong                                 CallbackType = 1
+	CallbackChannelMessageWithSource             CallbackType = 4
+	CallbackDeferredChannelMessageWithSource     CallbackType = 5
+	CallbackDeferredUpdateMessage                CallbackType = 6
+	CallbackUpdateMessage                        CallbackType = 7
+	CallbackApplicationCommandAutocompleteResult CallbackType = 8
+	CallbackModeal                               CallbackType = 9
+)
+
 type option struct {
 	Name  string `json:"name"`
 	Type  string `json:"type"`
