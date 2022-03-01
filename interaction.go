@@ -2,6 +2,7 @@ package kitaipu
 
 import (
 	"encoding/json"
+	"errors"
 	"strconv"
 	"time"
 )
@@ -229,15 +230,17 @@ type InteractionResponse struct {
 	Data InteractionResponseMessage `json:"data"`
 }
 
-func (r InteractionResponse) Prepare() (b []byte, err error) {
+func (r InteractionResponse) Prepare() (responseType string, b []byte, err error) {
 
 	if len(r.Data.Attachments) == 0 {
 		r.Data.Attachments = nil
 		b, err = json.Marshal(r)
+		responseType = "application/json"
 		return
 	}
 
 	// TODO: make attachments work
+	err = errors.New("attachments are not supported yet")
 	return
 
 }
