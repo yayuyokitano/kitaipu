@@ -54,9 +54,9 @@ const (
 )
 
 type option struct {
-	Name  string `json:"name"`
-	Type  string `json:"type"`
-	Value string `json:"value"`
+	Name  string      `json:"name"`
+	Type  CommandType `json:"type"`
+	Value string      `json:"value"`
 }
 
 type subcommand struct {
