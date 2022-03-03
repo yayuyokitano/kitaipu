@@ -68,7 +68,11 @@ type subcommand struct {
 type Permission int64
 
 func (p *Permission) UnmarshalJSON(b []byte) (err error) {
-	i, err := strconv.ParseInt(string(b), 10, 64)
+	s, err := strconv.Unquote(string(b))
+	if err != nil {
+		return
+	}
+	i, err := strconv.ParseInt(s, 10, 64)
 	if err != nil {
 		return
 	}
