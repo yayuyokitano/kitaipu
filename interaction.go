@@ -219,7 +219,7 @@ type PartialAttachment struct {
 	Description string `json:"description"`
 }
 
-type InteractionResponseMessage struct {
+type InteractionResponse struct {
 	TTS             bool                `json:"tts,omitempty"`
 	Content         string              `json:"content,omitempty"`
 	Embeds          []Embed             `json:"embeds,omitempty"`
@@ -229,15 +229,10 @@ type InteractionResponseMessage struct {
 	Attachments     []PartialAttachment `json:"attachments,omitempty"`
 }
 
-type InteractionResponse struct {
-	Type CallbackType               `json:"type"`
-	Data InteractionResponseMessage `json:"data"`
-}
-
 func (r InteractionResponse) Prepare() (responseType string, b []byte, err error) {
 
-	if len(r.Data.Attachments) == 0 {
-		r.Data.Attachments = nil
+	if len(r.Attachments) == 0 {
+		r.Attachments = nil
 		b, err = json.Marshal(r)
 		responseType = "application/json"
 		return
