@@ -222,7 +222,7 @@ type PartialAttachment struct {
 type InteractionResponseMessage struct {
 	TTS             bool                `json:"tts"`
 	Content         string              `json:"content"`
-	Embeds          Embed               `json:"embeds"`
+	Embeds          []Embed             `json:"embeds"`
 	AllowedMentions AllowedMentions     `json:"allowed_mentions"`
 	Flags           MessageFlags        `json:"flags"`
 	Components      []Component         `json:"components"`

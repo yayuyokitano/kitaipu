@@ -14,6 +14,5 @@ func TestJSONUnMarshal(t *testing.T) {
 	if i.Token != "aW50ZXJhY3Rpb246OTQ5MDEzNTYwNzExODU2MjU5OllaY25UZHdXMGYwcDBtRW9NaTdlOFBFMFQ0MlZhaVZONTBlM3BsOVpjNlllVXJIVm9vOHFRbUgwWkJhdEllVHQyQ2VHNjRKMTUwNkdkZUx3VkhCdmdvSUFyeE0zanluNE0yODdjeXpDbUhRMmRIeUdwMVl3Q1gxdVNROUR3ZnFV" {
 		t.Error("Token is not correct")
 	}
-	t.Log("e")
 
 }
