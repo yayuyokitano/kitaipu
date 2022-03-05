@@ -220,13 +220,13 @@ type PartialAttachment struct {
 }
 
 type InteractionResponseMessage struct {
-	TTS             bool                `json:"tts"`
-	Content         string              `json:"content"`
-	Embeds          []Embed             `json:"embeds"`
-	AllowedMentions AllowedMentions     `json:"allowed_mentions"`
-	Flags           MessageFlags        `json:"flags"`
-	Components      []Component         `json:"components"`
-	Attachments     []PartialAttachment `json:"attachments"`
+	TTS             bool                `json:"tts,omitempty"`
+	Content         string              `json:"content,omitempty"`
+	Embeds          []Embed             `json:"embeds,omitempty"`
+	AllowedMentions AllowedMentions     `json:"allowed_mentions,omitempty"`
+	Flags           MessageFlags        `json:"flags,omitempty"`
+	Components      []Component         `json:"components,omitempty"`
+	Attachments     []PartialAttachment `json:"attachments,omitempty"`
 }
 
 type InteractionResponse struct {

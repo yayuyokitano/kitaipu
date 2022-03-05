@@ -1,10 +1,10 @@
 package kitaipu
 
 type AllowedMentions struct {
-	Parse       []string `json:"parse"`
-	Users       []string `json:"users"`
-	Roles       []string `json:"roles"`
-	RepliedUser bool     `json:"replied_user"`
+	Parse       []string `json:"parse,omitempty"`
+	Users       []string `json:"users,omitempty"`
+	Roles       []string `json:"roles,omitempty"`
+	RepliedUser bool     `json:"replied_user,omitempty"`
 }
 
 type MessageFlags int

@@ -34,11 +34,11 @@ type PartialEmoji struct {
 }
 
 type SelectOptions struct {
-	Label       string       `json:"label"`
-	Value       string       `json:"value"`
-	Description string       `json:"description"`
-	Emoji       PartialEmoji `json:"emoji"`
-	Default     bool         `json:"default"`
+	Label       string       `json:"label,omitempty"`
+	Value       string       `json:"value,omitempty"`
+	Description string       `json:"description,omitempty"`
+	Emoji       PartialEmoji `json:"emoji,omitempty"`
+	Default     bool         `json:"default,omitempty"`
 }
 
 type ButtonComponent struct {
@@ -74,21 +74,21 @@ type TextInputComponent struct {
 }
 
 type Component struct {
-	Type        ComponentType   `json:"type"`
-	Style       ComponentStyle  `json:"style"`
-	Label       string          `json:"label"`
-	Emoji       PartialEmoji    `json:"emoji"`
-	CustomID    string          `json:"custom_id"`
-	URL         string          `json:"url"`
-	Disabled    bool            `json:"disabled"`
-	Options     []SelectOptions `json:"options"`
-	Placeholder string          `json:"placeholder"`
-	MinValues   int             `json:"min_values"`
-	MaxValues   int             `json:"max_values"`
-	MinLength   int             `json:"min_length"`
-	MaxLength   int             `json:"max_length"`
-	Required    bool            `json:"required"`
-	Value       string          `json:"value"`
+	Type        ComponentType   `json:"type,omitempty"`
+	Style       ComponentStyle  `json:"style,omitempty"`
+	Label       string          `json:"label,omitempty"`
+	Emoji       PartialEmoji    `json:"emoji,omitempty"`
+	CustomID    string          `json:"custom_id,omitempty"`
+	URL         string          `json:"url,omitempty"`
+	Disabled    bool            `json:"disabled,omitempty"`
+	Options     []SelectOptions `json:"options,omitempty"`
+	Placeholder string          `json:"placeholder,omitempty"`
+	MinValues   int             `json:"min_values,omitempty"`
+	MaxValues   int             `json:"max_values,omitempty"`
+	MinLength   int             `json:"min_length,omitempty"`
+	MaxLength   int             `json:"max_length,omitempty"`
+	Required    bool            `json:"required,omitempty"`
+	Value       string          `json:"value,omitempty"`
 }
 
 type ActionRow struct {

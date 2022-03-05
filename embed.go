@@ -44,16 +44,16 @@ type EmbedField struct {
 }
 
 type Embed struct {
-	Title       string        `json:"title"`
-	Description string        `json:"description"`
-	URL         string        `json:"url"`
-	Timestamp   time.Time     `json:"timestamp"`
-	Color       Color         `json:"color"`
-	Footer      EmbedFooter   `json:"footer"`
-	Image       EmbedVisual   `json:"image"`
-	Thumbnail   EmbedVisual   `json:"thumbnail"`
-	Video       EmbedVisual   `json:"video"`
-	Provider    EmbedProvider `json:"provider"`
-	Author      EmbedAuthor   `json:"author"`
-	Fields      []EmbedField  `json:"fields"`
+	Title       string        `json:"title,omitempty"`
+	Description string        `json:"description,omitempty"`
+	URL         string        `json:"url,omitempty"`
+	Timestamp   time.Time     `json:"timestamp,omitempty"`
+	Color       Color         `json:"color,omitempty"`
+	Footer      EmbedFooter   `json:"footer,omitempty"`
+	Image       EmbedVisual   `json:"image,omitempty"`
+	Thumbnail   EmbedVisual   `json:"thumbnail,omitempty"`
+	Video       EmbedVisual   `json:"video,omitempty"`
+	Provider    EmbedProvider `json:"provider,omitempty"`
+	Author      EmbedAuthor   `json:"author,omitempty"`
+	Fields      []EmbedField  `json:"fields,omitempty"`
 }
