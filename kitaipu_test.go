@@ -16,3 +16,59 @@ func TestJSONUnMarshal(t *testing.T) {
 	}
 
 }
+
+func TestOptionGet(t *testing.T) {
+	opts := Options{
+		{
+			Name: "test1",
+			Type: OptSubCommand,
+			Options: Options{
+				{
+					Name:  "test2",
+					Type:  OptUser,
+					Value: "test2val",
+				},
+				{
+					Name:  "test3",
+					Type:  OptBool,
+					Value: "test3val",
+				},
+			},
+		},
+	}
+	opt, ok := opts.Get("test1")
+	if !ok {
+		t.Error("Option not found")
+	}
+	if opt.Name != "test1" {
+		t.Error("Name is not correct")
+	}
+	if opt.Type != OptSubCommand {
+		t.Error("Type is not correct")
+	}
+
+	opt, ok = opt.Options.Get("test3")
+	if !ok {
+		t.Error("Option not found")
+	}
+	if opt.Name != "test3" {
+		t.Error("Name is not correct")
+	}
+	if opt.Type != OptBool {
+		t.Error("Type is not correct")
+	}
+	if opt.Value != "test3val" {
+		t.Error("Value is not correct")
+	}
+
+	opt = Option{}
+
+	opt, ok = opts.Get("test2")
+	if ok {
+		t.Error("Option found")
+	}
+	if opt.Name != "" {
+		t.Errorf("opt should not have a name, name is %s", opt.Name)
+	}
+
+}

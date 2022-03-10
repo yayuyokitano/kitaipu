@@ -54,9 +54,10 @@ const (
 )
 
 type Option struct {
-	Name  string      `json:"name"`
-	Type  CommandType `json:"type"`
-	Value string      `json:"value"`
+	Name    string     `json:"name"`
+	Type    OptionType `json:"type"`
+	Options Options    `json:"options"`
+	Value   string     `json:"value"`
 }
 
 type Options []Option
@@ -68,13 +69,8 @@ func (opts Options) Get(name string) (o Option, ok bool) {
 			return
 		}
 	}
+	o = Option{}
 	return
-}
-
-type SubCommand struct {
-	Name    string  `json:"name"`
-	Options Options `json:"options"`
-	Type    string  `json:"type"`
 }
 
 type Permission int64
@@ -181,14 +177,6 @@ type resolved struct {
 	Users   map[string]user           `json:"users"`
 }
 
-type subCommandData struct {
-	ID          string       `json:"id"`
-	Name        string       `json:"name"`
-	SubCommands []SubCommand `json:"options"`
-	Resolved    resolved     `json:"resolved"`
-	Type        CommandType  `json:"type"`
-}
-
 type commandData struct {
 	ID       string      `json:"id"`
 	Name     string      `json:"name"`
@@ -201,20 +189,6 @@ type Command struct {
 	ApplicationID string          `json:"application_id"`
 	ChannelID     string          `json:"channel_id"`
 	Data          commandData     `json:"data"`
-	GuildID       string          `json:"guild_id"`
-	GuildLocale   string          `json:"guild_locale"`
-	ID            string          `json:"id"`
-	Locale        string          `json:"locale"`
-	Member        member          `json:"member"`
-	Token         string          `json:"token"`
-	Type          InteractionType `json:"type"`
-	Version       int             `json:"version"`
-}
-
-type CommandWithSubCommand struct {
-	ApplicationID string          `json:"application_id"`
-	ChannelID     string          `json:"channel_id"`
-	Data          subCommandData  `json:"data"`
 	GuildID       string          `json:"guild_id"`
 	GuildLocale   string          `json:"guild_locale"`
 	ID            string          `json:"id"`
