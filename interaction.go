@@ -53,16 +53,28 @@ const (
 	CallbackModeal                               CallbackType = 9
 )
 
-type option struct {
+type Option struct {
 	Name  string      `json:"name"`
 	Type  CommandType `json:"type"`
 	Value string      `json:"value"`
 }
 
-type subcommand struct {
-	Name    string   `json:"name"`
-	Options []option `json:"options"`
-	Type    string   `json:"type"`
+type Options []Option
+
+func (opts Options) Get(name string) (o Option, ok bool) {
+	for _, o = range opts {
+		if o.Name == name {
+			ok = true
+			return
+		}
+	}
+	return
+}
+
+type SubCommand struct {
+	Name    string  `json:"name"`
+	Options Options `json:"options"`
+	Type    string  `json:"type"`
 }
 
 type Permission int64
@@ -172,7 +184,7 @@ type resolved struct {
 type subCommandData struct {
 	ID          string       `json:"id"`
 	Name        string       `json:"name"`
-	SubCommands []subcommand `json:"options"`
+	SubCommands []SubCommand `json:"options"`
 	Resolved    resolved     `json:"resolved"`
 	Type        CommandType  `json:"type"`
 }
@@ -180,7 +192,7 @@ type subCommandData struct {
 type commandData struct {
 	ID       string      `json:"id"`
 	Name     string      `json:"name"`
-	Options  []option    `json:"options"`
+	Options  Options     `json:"options"`
 	Resolved resolved    `json:"resolved"`
 	Type     CommandType `json:"type"`
 }
