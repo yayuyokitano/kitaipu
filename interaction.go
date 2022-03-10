@@ -148,23 +148,23 @@ const (
 	PermModerateMembers
 )
 
-type user struct {
+type User struct {
 	ID            string `json:"id"`
 	Username      string `json:"username"`
 	Discriminator string `json:"discriminator"`
 	Avatar        string `json:"avatar"`
 }
 
-type member struct {
+type Member struct {
 	Avatar      string     `json:"avatar"`
 	JoinedAt    time.Time  `json:"joined_at"`
 	Nick        string     `json:"nick"`
 	Permissions Permission `json:"permissions"`
 	Roles       []string   `json:"roles"`
-	User        user       `json:"user"`
+	User        User       `json:"user"`
 }
 
-type resolvedMember map[string]struct {
+type ResolvedMember map[string]struct {
 	Avatar      string     `json:"avatar"`
 	JoinedAt    time.Time  `json:"joined_at"`
 	Nick        string     `json:"nick"`
@@ -172,28 +172,28 @@ type resolvedMember map[string]struct {
 	Roles       []string   `json:"roles"`
 }
 
-type resolved struct {
-	Members map[string]resolvedMember `json:"members"`
-	Users   map[string]user           `json:"users"`
+type Resolved struct {
+	Members map[string]ResolvedMember `json:"members"`
+	Users   map[string]User           `json:"users"`
 }
 
-type commandData struct {
+type CommandData struct {
 	ID       string      `json:"id"`
 	Name     string      `json:"name"`
 	Options  Options     `json:"options"`
-	Resolved resolved    `json:"resolved"`
+	Resolved Resolved    `json:"resolved"`
 	Type     CommandType `json:"type"`
 }
 
 type Command struct {
 	ApplicationID string          `json:"application_id"`
 	ChannelID     string          `json:"channel_id"`
-	Data          commandData     `json:"data"`
+	Data          CommandData     `json:"data"`
 	GuildID       string          `json:"guild_id"`
 	GuildLocale   string          `json:"guild_locale"`
 	ID            string          `json:"id"`
 	Locale        string          `json:"locale"`
-	Member        member          `json:"member"`
+	Member        Member          `json:"member"`
 	Token         string          `json:"token"`
 	Type          InteractionType `json:"type"`
 	Version       int             `json:"version"`
