@@ -162,6 +162,10 @@ type Member struct {
 	Permissions Permission `json:"permissions"`
 	Roles       []string   `json:"roles"`
 	User        User       `json:"user"`
+	Pending     bool       `json:"pending"`
+	IsPending   bool       `json:"is_pending"`
+	Deaf        bool       `json:"deaf"`
+	Mute        bool       `json:"mute"`
 }
 
 type ResolvedMember map[string]struct {
@@ -170,6 +174,8 @@ type ResolvedMember map[string]struct {
 	Nick        string     `json:"nick"`
 	Permissions Permission `json:"permissions"`
 	Roles       []string   `json:"roles"`
+	Pending     bool       `json:"pending"`
+	IsPending   bool       `json:"is_pending"`
 }
 
 type Resolved struct {
