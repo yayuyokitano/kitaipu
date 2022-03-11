@@ -168,7 +168,7 @@ type Member struct {
 	Mute        bool       `json:"mute"`
 }
 
-type ResolvedMember map[string]struct {
+type ResolvedMember struct {
 	Avatar      string     `json:"avatar"`
 	JoinedAt    time.Time  `json:"joined_at"`
 	Nick        string     `json:"nick"`
