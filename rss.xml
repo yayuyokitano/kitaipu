@@ -1,0 +1,18 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Test Feed</title>
+        <link>https://raw.githubusercontent.com/yayuyokitano/kitaipu/refs/heads/main/rss.xml</link>
+        <description>Test feed for rss dings</description>
+        <language>en-us</language>
+        <pubDate>02 Dec 2024 11:29 +0900</pubDate>
+        <lastBuildDate>03 Dec 2024 17:22 +0900</lastBuildDate>
+        <atom:link href="https://raw.githubusercontent.com/yayuyokitano/kitaipu/refs/heads/main/rss.xml" rel="self" type="application/rss+xml"></atom:link>
+        <item>
+            <title>V2.0.3 Released</title>
+            <link>https://github.com/releases/changelogv2_0_3-released</link>
+            <description>Fixed bug</description>
+            <pubDate>02 Dec 2024 12:12 +0900</pubDate>
+            <guid>https://github.com/releases/changelogv2_0_3-released</guid>
+        </item>
+    </channel>
+</rss>
