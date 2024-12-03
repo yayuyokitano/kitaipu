@@ -8,6 +8,13 @@
         <lastBuildDate>03 Dec 2024 17:22 +0900</lastBuildDate>
         <atom:link href="https://raw.githubusercontent.com/yayuyokitano/kitaipu/refs/heads/main/rss.xml" rel="self" type="application/rss+xml"></atom:link>
         <item>
+            <title>V2.1.0 Released</title>
+            <link>https://github.com/releases/changelogv2_1_0-released</link>
+            <description>- Added x&#xA;- Fixed y</description>
+            <pubDate>02 Dec 2024 12:28 +0900</pubDate>
+            <guid>https://github.com/releases/changelogv2_1_0-released</guid>
+        </item>
+        <item>
             <title>V2.0.3 Released</title>
             <link>https://github.com/releases/changelogv2_0_3-released</link>
             <description>Fixed bug</description>
